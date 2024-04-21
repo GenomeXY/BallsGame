@@ -178,7 +178,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 112dc41e0b1d616448832b40327d6c53, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -806,6 +806,8 @@ MonoBehaviour:
   _visualTransform: {fileID: 636700824}
   _collider: {fileID: 1886030520}
   _trigger: {fileID: 2043104313}
+  _ballSettings: {fileID: 11400000, guid: 54b49fcceacf7b64ea295000b9e7cb87, type: 2}
+  _ballRenderer: {fileID: 31999281}
 --- !u!54 &465157721
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -20,11 +20,11 @@ public class ActiveItem : MonoBehaviour
         SetLevel(Level);
     }
 
-    public void SetLevel(int level)
+    public virtual void SetLevel(int level)
     {
         Level = level;
-        //Обновляем число на шаре - ((уровень объекта + 1) в степени 2)
-        //0 ур. - 2, 1 ур. - 4, 2 ур. - 8, 3 ур. - 16, 4 ур. - 32, 5 ур. - 64 
+        //Обновляем число на шаре - (2 в степени (уровень объекта + 1))
+        //0 ур. - 2, 1 ур. - 4, 2 ур. - 8, 3 ур. - 16, 4 ур. - 32, 5 ур. - 64 и т.д.
         int number = (int)Mathf.Pow(2, level + 1);
         string numberString = number.ToString();
         _levelText.text = numberString;

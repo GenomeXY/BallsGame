@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448e34d37cc0098469b074c013c88631, type: 3}
+  m_Name: BallSettings
+  m_EditorClassIdentifier: 
+  BallMaterials:
+  - {fileID: 2100000, guid: 112dc41e0b1d616448832b40327d6c53, type: 2}
+  - {fileID: 2100000, guid: 225875babe526764d87f2420af484045, type: 2}
+  - {fileID: 2100000, guid: 8d08dfdd6a3b8d34484b4e51bf8b1f8a, type: 2}
+  - {fileID: 2100000, guid: 11135711a3699594e816290d5ae6b965, type: 2}
+  - {fileID: 2100000, guid: c1925cd011cc0c54482c41c08f771164, type: 2}
+  - {fileID: 2100000, guid: 9edf1cfc783bee8428ba9705810227ef, type: 2}
+  - {fileID: 2100000, guid: 7d82c967926af624e85dcf3b59862a26, type: 2}
+  - {fileID: 2100000, guid: 0b2c8931575692f4e8637559035e5895, type: 2}
+  - {fileID: 2100000, guid: 032331adc8e0ff04a8ba2d907a01a995, type: 2}
+  - {fileID: 2100000, guid: 5275a4820f6d3c6429925a1d75de5ccb, type: 2}
+  - {fileID: 2100000, guid: d58b5395a34d626448dbf4fab425ddb4, type: 2}
