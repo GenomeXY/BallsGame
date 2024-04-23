@@ -62,4 +62,19 @@ public class ActiveItem : MonoBehaviour
         //«адаем скорость вниз, чтобы летел быстрее
         Rigidbody.velocity = Vector3.down * 0.8f;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.attachedRigidbody)
+        {
+            ActiveItem otherItem = other.attachedRigidbody.GetComponent<ActiveItem>();
+            if (otherItem)
+            {
+                if (Level == otherItem.Level)
+                {
+                    CollapseManager.Instance.Collapse(this, otherItem);
+                }
+            }
+        }        
+    }
 }
