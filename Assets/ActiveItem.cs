@@ -13,6 +13,8 @@ public class ActiveItem : MonoBehaviour
     [SerializeField] private SphereCollider _collider;
     [SerializeField] private SphereCollider _trigger;
 
+    public Rigidbody Rigidbody;
+
     [ContextMenu("IncreaseLevel")]
     public void IncreaseLevel()
     {
@@ -38,4 +40,26 @@ public class ActiveItem : MonoBehaviour
         _trigger.radius = Radius + 0.1f;
     }
 
+    //Устанавливаем Item в трубу наверху
+    public void SetupToTube()
+    {
+        //Выключаем физику
+        _trigger.enabled = false;
+        _collider.enabled = false;
+        Rigidbody.isKinematic = true;
+        Rigidbody.interpolation = RigidbodyInterpolation.None;
+    }
+
+    public void DropItem()
+    {
+        //Делаем объект физическим
+        _trigger.enabled = true;
+        _collider.enabled = true;
+        Rigidbody.isKinematic = false;
+        Rigidbody.interpolation = RigidbodyInterpolation.Interpolate;
+        //Отперенчиваем от Spawn
+        transform.parent = null;
+        //Задаем скорость вниз, чтобы летел быстрее
+        Rigidbody.velocity = Vector3.down * 0.8f;
+    }
 }
