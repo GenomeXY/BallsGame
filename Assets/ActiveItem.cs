@@ -14,12 +14,19 @@ public class ActiveItem : MonoBehaviour
     [SerializeField] private SphereCollider _trigger;
 
     public Rigidbody Rigidbody;
+    public bool IsDead;
+
+    [SerializeField] private Animator _animator;
 
     [ContextMenu("IncreaseLevel")]
     public void IncreaseLevel()
     {
         Level++;
         SetLevel(Level);
+        _animator.SetTrigger("IncreaseBallLevel");
+
+        _trigger.enabled = false;
+        Invoke(nameof(EnableTrigger), 0.08f);
     }
 
     public virtual void SetLevel(int level)
@@ -37,7 +44,12 @@ public class ActiveItem : MonoBehaviour
         Vector3 ballScale = Vector3.one * Radius * 2f;
         _visualTransform.localScale = ballScale;
         _collider.radius = Radius;
-        _trigger.radius = Radius + 0.1f;
+        _trigger.radius = Radius + 0.1f;        
+    }
+
+    private void EnableTrigger()
+    {
+        _trigger.enabled = true;
     }
 
     //Устанавливаем Item в трубу наверху
@@ -65,16 +77,30 @@ public class ActiveItem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(IsDead) return;
+
         if (other.attachedRigidbody)
         {
             ActiveItem otherItem = other.attachedRigidbody.GetComponent<ActiveItem>();
             if (otherItem)
             {
-                if (Level == otherItem.Level)
+                if (!otherItem.IsDead && Level == otherItem.Level)
                 {
                     CollapseManager.Instance.Collapse(this, otherItem);
                 }
             }
         }        
+    }
+
+    public void Disable()
+    {
+        _trigger.enabled = false;
+        Rigidbody.isKinematic = true;
+        _collider.enabled = false;
+        IsDead = true;
+    }
+    public void Die()
+    {
+        Destroy(gameObject);
     }
 }
