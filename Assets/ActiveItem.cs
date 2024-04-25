@@ -7,7 +7,7 @@ public class ActiveItem : MonoBehaviour
 {
     public int Level; //уровень активного элемента
     public float Radius;
-    [SerializeField] private TextMeshProUGUI _levelText; //текст цифры
+    [SerializeField] protected TextMeshProUGUI _levelText; //текст цифры
 
     [SerializeField] private Transform _visualTransform;
     [SerializeField] private SphereCollider _collider;
@@ -17,6 +17,13 @@ public class ActiveItem : MonoBehaviour
     public bool IsDead;
 
     [SerializeField] private Animator _animator;
+
+    public Projection Projection;
+
+    private void Start()
+    {
+        Projection.Hide();
+    }
 
     [ContextMenu("IncreaseLevel")]
     public void IncreaseLevel()

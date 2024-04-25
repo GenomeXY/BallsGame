@@ -11,5 +11,7 @@ public class Ball : ActiveItem
     {
         base.SetLevel(level);
         _ballRenderer.material = _ballSettings.BallMaterials[level];
+
+        Projection.Setup(_ballSettings.BallProjectionMaterials[level], _levelText.text, Radius);
     }
 }
