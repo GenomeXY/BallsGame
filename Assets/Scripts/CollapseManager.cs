@@ -13,23 +13,56 @@ public class CollapseManager : MonoBehaviour
 
     public void Collapse(ActiveItem itemA, ActiveItem itemB)
     {
-        StartCoroutine(CollapseProcess(itemA, itemB));
+        //Правило по которому itemA и itemB будут выбираться
+        ActiveItem toItem;
+        ActiveItem fromItem;
+        //Если высота шаров по у отличается большее чем на 0.02f
+        if (Mathf.Abs(itemA.transform.position.y - itemB.transform.position.y) > 0.02f)
+        {
+            //Если А выше чем В
+            if (itemA.transform.position.y > itemB.transform.position.y)
+            {
+                fromItem = itemA;
+                toItem = itemB;
+            }
+            else
+            {
+                fromItem = itemB;
+                toItem = itemA;
+            }
+        }
+        else
+        {
+            //Если скорость А больше чем скорость В
+            if (itemA.Rigidbody.velocity.magnitude > itemB.Rigidbody.velocity.magnitude)
+            {
+                fromItem = itemA;
+                toItem = itemB;
+            }
+            else
+            {
+                fromItem = itemB;
+                toItem = itemA;
+            }
+        }
+
+        StartCoroutine(CollapseProcess(fromItem, toItem));
     }
 
-    public IEnumerator CollapseProcess(ActiveItem itemA, ActiveItem itemB)
+    public IEnumerator CollapseProcess(ActiveItem fromItem, ActiveItem toItem)
     {
-        itemA.Disable();
-        Vector3 startPosition = itemA.transform.position;
+        fromItem.Disable();
+        Vector3 startPosition = fromItem.transform.position;
         for (float t = 0; t < 1f; t += Time.deltaTime / 0.08f)
         {
-            itemA.transform.position = Vector3.Lerp(startPosition, itemB.transform.position, t);
+            fromItem.transform.position = Vector3.Lerp(startPosition, toItem.transform.position, t);
             yield return null;
         }
-        itemA.transform.position = itemB.transform.position;
-        itemA.Die();
-        itemB.IncreaseLevel();
+        fromItem.transform.position = toItem.transform.position;
+        fromItem.Die();
+        toItem.IncreaseLevel();
 
-        ExplodeBall(itemB.transform.position, itemB.Radius + 0.15f);
+        ExplodeBall(toItem.transform.position, toItem.Radius + 0.15f);
     }
 
     public void ExplodeBall(Vector3 position, float radius)
