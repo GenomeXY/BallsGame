@@ -716,10 +716,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fa5dadcc038a694caca54bfec29a740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ItemType: 1
   Level: 0
   Radius: 0.4
   _levelText: {fileID: 2956531560139528245}
-  _visualTransform: {fileID: 994266270655902662}
   _collider: {fileID: 670124288027417285}
   _trigger: {fileID: 616610901931646059}
   Rigidbody: {fileID: 8872333874086550864}
@@ -728,6 +728,7 @@ MonoBehaviour:
   Projection: {fileID: 7488424050045667033}
   _ballSettings: {fileID: 11400000, guid: 54b49fcceacf7b64ea295000b9e7cb87, type: 2}
   _ballRenderer: {fileID: 6759182720467439619}
+  _visualTransform: {fileID: 994266270655902662}
 --- !u!1 &7084782893527848710
 GameObject:
   m_ObjectHideFlags: 0

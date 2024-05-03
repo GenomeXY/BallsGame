@@ -52,17 +52,46 @@ public class CollapseManager : MonoBehaviour
     public IEnumerator CollapseProcess(ActiveItem fromItem, ActiveItem toItem)
     {
         fromItem.Disable();
-        Vector3 startPosition = fromItem.transform.position;
-        for (float t = 0; t < 1f; t += Time.deltaTime / 0.08f)
-        {
-            fromItem.transform.position = Vector3.Lerp(startPosition, toItem.transform.position, t);
-            yield return null;
-        }
-        fromItem.transform.position = toItem.transform.position;
-        fromItem.Die();
-        toItem.IncreaseLevel();
 
-        ExplodeBall(toItem.transform.position, toItem.Radius + 0.15f);
+        // Еси два шара, то въезжают друг в друга
+        if (fromItem.ItemType == ItemType.Ball || toItem.ItemType == ItemType.Ball)
+        {
+            Vector3 startPosition = fromItem.transform.position;
+            for (float t = 0; t < 1f; t += Time.deltaTime / 0.08f)
+            {
+                fromItem.transform.position = Vector3.Lerp(startPosition, toItem.transform.position, t);
+                yield return null;
+            }
+            fromItem.transform.position = toItem.transform.position;
+        }     
+
+        if (fromItem.ItemType == ItemType.Ball && toItem.ItemType == ItemType.Ball)
+        {
+            fromItem.Die();
+            toItem.DoEffect();
+            ExplodeBall(toItem.transform.position, toItem.Radius + 0.15f);
+        }
+        else
+        {
+            // Если объект мяч - уничтожаем
+            if (fromItem.ItemType == ItemType.Ball)
+            {
+                fromItem.Die();
+            }
+            else
+            {
+                // Если не мяч, воспроизводим эффект
+                fromItem.DoEffect();
+            }
+            if (toItem.ItemType == ItemType.Ball)
+            {
+                toItem.Die();
+            }
+            else
+            {
+                toItem.DoEffect();
+            }
+        }
     }
 
     public void ExplodeBall(Vector3 position, float radius)

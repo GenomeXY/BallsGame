@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ActiveItem : MonoBehaviour
+public class ActiveItem : Item
 {
     public int Level; //уровень активного элемента
     public float Radius;
@@ -99,5 +99,10 @@ public class ActiveItem : MonoBehaviour
     public void Die()
     {
         Destroy(gameObject);
+    }
+
+    public virtual void DoEffect ()
+    {
+
     }
 }

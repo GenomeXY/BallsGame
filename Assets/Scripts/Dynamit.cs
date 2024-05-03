@@ -17,12 +17,6 @@ public class Dynamit : ActiveItem
         _affectArea.SetActive(false); //выключаем круг-радуис действия
     }
 
-    [ContextMenu("Explode")]
-    public void Explode() //взрывает динамит
-    {
-        StartCoroutine(AffectProcess());
-    }
-
     private IEnumerator AffectProcess()
     {
         _affectArea.SetActive(true); //включает круг-радуис действия, чтобы мы видели зону поражения
@@ -54,5 +48,11 @@ public class Dynamit : ActiveItem
     private void OnValidate() //вызывается, когда мы что-то меняем в инспекторе (чтобы покрутить зону поражения в инспекторе)
     {
         _affectArea.transform.localScale = Vector3.one * _affectRadius * 2f;
+    }
+
+    public override void DoEffect()
+    {
+        base.DoEffect();
+        StartCoroutine(AffectProcess());
     }
 }
