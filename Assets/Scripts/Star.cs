@@ -18,7 +18,7 @@ public class Star : ActiveItem
 
     private IEnumerator AffectProcess()
     {
-        _affectArea.SetActive(true); //включает круг-радуис действия, чтобы мы видели зону поражения
+        _affectArea.SetActive(true); //включает круг-радуис действия, чтобы мы видели зону действия
         _animator.enabled = true;
         yield return new WaitForSeconds(1f);
 
