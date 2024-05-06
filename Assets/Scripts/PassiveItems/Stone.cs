@@ -21,6 +21,10 @@ public class Stone : PassiveItem
                 CreateChildRock(_level - 1);
             }
         }
+        else
+        {
+            ScoreManager.Instance.AddScore(ItemType, transform.position);
+        }
         Die();
     }
 
@@ -53,6 +57,6 @@ public class Stone : PassiveItem
     void Die()
     {
         Instantiate(_dieEffect, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        Destroy(gameObject);        
     }
 }

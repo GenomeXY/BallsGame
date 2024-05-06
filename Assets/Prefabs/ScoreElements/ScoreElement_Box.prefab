@@ -205,7 +205,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   Level: 0
-  FlyingIconPrefab: {fileID: 0}
+  FlyingIconPrefab: {fileID: 501198299733295299, guid: 5428b606bc9d70046b1cbc3b92eaccae,
+    type: 3}
 --- !u!1 &8450642422705099699
 GameObject:
   m_ObjectHideFlags: 0

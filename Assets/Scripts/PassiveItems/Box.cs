@@ -42,6 +42,7 @@ public class Box : PassiveItem
     void Die()
     {
         Destroy(gameObject);
+        ScoreManager.Instance.AddScore(ItemType, transform.position);
     }
 
 }

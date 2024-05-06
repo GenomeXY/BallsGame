@@ -16,5 +16,6 @@ public class Barrel : PassiveItem
     {
         Instantiate(_barrelExplosion, transform.position, Quaternion.Euler(-90f, 0, 0));
         Destroy(gameObject);
+        ScoreManager.Instance.AddScore(ItemType, transform.position);
     }
 }
