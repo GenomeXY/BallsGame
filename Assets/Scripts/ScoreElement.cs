@@ -6,12 +6,13 @@ using UnityEngine;
 public class ScoreElement : MonoBehaviour
 {
     public ItemType ItemType; 
-    [SerializeField] public int CurrentScore; // сколько осталось собрать
-    [SerializeField] private TextMeshProUGUI _text; 
-    [SerializeField] public Transform IconTransform; // ссылка на картинку
+    public int CurrentScore; // сколько осталось собрать    
+    public Transform IconTransform; // ссылка на картинку
+    public int Level; // для шаров
+    public GameObject FlyingIconPrefab;
+
+    [SerializeField] private TextMeshProUGUI _text;
     [SerializeField] private AnimationCurve _scaleCurve; // анимационная кривая
-    [SerializeField] public int Level; // для шаров
-    public GameObject FlyingIconPrefab; 
 
     // Добавить один Item к счету
     [ContextMenu("AddOne")]
@@ -29,10 +30,10 @@ public class ScoreElement : MonoBehaviour
         //ScoreManager.Instance.CheckWin();
     }
 
-    public void Setup(int number) // устанавливает счет после создания иконки
+    public virtual void Setup(Task task) // устанавливает счет после создания иконки
     {
-        CurrentScore = number;
-        _text.text = number.ToString();
+        CurrentScore = task.Number;
+        _text.text = task.Number.ToString();
     }
 
     IEnumerator AddAnimation() // колебания иконки по кривой

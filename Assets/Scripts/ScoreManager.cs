@@ -41,7 +41,7 @@ public class ScoreManager : MonoBehaviour
                 {
                     // Создаем новый ScoreElement
                     ScoreElement newScoreElement = Instantiate(ScoreElementPrefabs[i], ItemScoreParent);
-                    newScoreElement.Setup(task.Number); //task.Level, this
+                    newScoreElement.Setup(task); //task.Level, this
                     // Добавляем ScoreElement в массив
                     ScoreElements[taskIndex] = newScoreElement;
                 }
@@ -49,7 +49,7 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    public void AddScore(ItemType itemType, Vector3 position, int level = 0) // вызывается при уничтожении объекта 
+    public bool AddScore(ItemType itemType, Vector3 position, int level = 0) // вызывается при уничтожении объекта 
     {
         for (int i = 0; i < ScoreElements.Length; i++)
         {
@@ -65,10 +65,12 @@ public class ScoreManager : MonoBehaviour
                     if (ScoreElements[i].Level == level)
                     {
                         StartCoroutine(AddScoreAnimation(ScoreElements[i], position));
+                        return true;
                     }
                 }
             }
         }
+        return false;
     }
 
     IEnumerator AddScoreAnimation(ScoreElement scoreElement, Vector3 position) //для создания иконки-элемента и её перелета-движения в UI
