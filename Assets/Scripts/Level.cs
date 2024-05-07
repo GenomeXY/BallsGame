@@ -17,6 +17,21 @@ public class Level : MonoBehaviour
     public int MaxCreatedBallLevel = 1;
     // Список задач на уровень. Что нужно собрать
     public Task[] Tasks;
+
+    public static Level Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 }
+
 
 

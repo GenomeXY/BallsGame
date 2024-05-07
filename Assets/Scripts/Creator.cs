@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Creator : MonoBehaviour
@@ -13,20 +14,38 @@ public class Creator : MonoBehaviour
 
     [SerializeField] private Transform _rayTransform;
     [SerializeField] private LayerMask _layerMask;
+
+    private int _ballsLeft;
+    [SerializeField] private TextMeshProUGUI _numberOfBallsText;
     void Start()
     {
+        _ballsLeft = Level.Instance.NumberOfBalls; // сохран€ем количество м€чей, которое задаетс€ в уровне
+        UpdateBallsLeftText();
+
         CreateItemInTube();
         StartCoroutine(MoveToSpawner());
+    }
+
+    public void UpdateBallsLeftText()
+    {
+        _numberOfBallsText.text = _ballsLeft.ToString();
     }
 
     //—оздаем новый м€ч в трубе
     void CreateItemInTube()
     {
+        if (_ballsLeft == 0)
+        {
+            Debug.Log("Balls Ended");
+            return;
+        }
         //Ќазначаем шару случайный уровень и создаем шар в позиции трубы
         int itemLevel = Random.Range(0, 5);
         _itemInTube = Instantiate(_ballPrefab, _tube.position, Quaternion.identity); 
         _itemInTube.SetLevel(itemLevel);
         _itemInTube.SetupToTube(); //отключаем физику у шара
+        _ballsLeft--;
+        UpdateBallsLeftText(); 
     }
 
     // орутина дл€ перемещени€ шара из трубы к spawner
