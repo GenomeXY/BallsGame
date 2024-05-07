@@ -84,6 +84,7 @@ public class Creator : MonoBehaviour
         }
     }
 
+    private Coroutine _waitForLose;
     void Drop()
     {
         _itemInSpawner.DropItem();
@@ -95,5 +96,28 @@ public class Creator : MonoBehaviour
         {
             StartCoroutine(MoveToSpawner());
         }
+        else
+        {
+            _waitForLose = StartCoroutine(WaitForLose());
+            CollapseManager.Instance.OnCollapse.AddListener(ResetLoseTimer);
+        }
+    }        
+    IEnumerator WaitForLose()
+    {
+        for (float t = 0f; t < 5f; t += Time.deltaTime)
+        {
+            yield return null;
+        }
+        // Lose
+        Debug.Log("Lose");
+    }
+
+    private void ResetLoseTimer() // останавливаем и стартуем корутину, вызываем мметод каждый раз при объединении шаров
+    {
+        if (_waitForLose != null)
+        {
+            StopCoroutine(_waitForLose);
+            _waitForLose = StartCoroutine(WaitForLose());
+        }        
     }
 }
