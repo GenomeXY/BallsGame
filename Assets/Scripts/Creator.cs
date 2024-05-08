@@ -100,6 +100,7 @@ public class Creator : MonoBehaviour
         {
             _waitForLose = StartCoroutine(WaitForLose());
             CollapseManager.Instance.OnCollapse.AddListener(ResetLoseTimer);
+            GameManager.Instance.OnWin.AddListener(StopWaitForLose);
         }
     }        
     IEnumerator WaitForLose()
@@ -110,6 +111,7 @@ public class Creator : MonoBehaviour
         }
         // Lose
         Debug.Log("Lose");
+        GameManager.Instance.Lose();
     }
 
     private void ResetLoseTimer() // останавливаем и стартуем корутину, вызываем мметод каждый раз при объединении шаров
@@ -119,5 +121,13 @@ public class Creator : MonoBehaviour
             StopCoroutine(_waitForLose);
             _waitForLose = StartCoroutine(WaitForLose());
         }        
+    }
+
+    void StopWaitForLose()
+    {
+        if (_waitForLose != null)
+        {
+            StopCoroutine(_waitForLose);
+        }
     }
 }
