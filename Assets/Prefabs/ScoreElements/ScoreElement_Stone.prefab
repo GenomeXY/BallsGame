@@ -186,8 +186,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemType: 3
   CurrentScore: 0
-  _text: {fileID: 7385158828184377022}
   IconTransform: {fileID: 6867310675384015532}
+  Level: 0
+  FlyingIconPrefab: {fileID: 208373507253999282, guid: 2b63630481ef50a4aabedab3ecf7d029,
+    type: 3}
+  _text: {fileID: 7385158828184377022}
   _scaleCurve:
     serializedVersion: 2
     m_Curve:
@@ -266,9 +269,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  Level: 0
-  FlyingIconPrefab: {fileID: 208373507253999282, guid: 2b63630481ef50a4aabedab3ecf7d029,
-    type: 3}
 --- !u!1 &7054492891120692930
 GameObject:
   m_ObjectHideFlags: 0

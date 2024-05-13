@@ -21,6 +21,7 @@ public class ActiveItem : Item
     protected virtual void Start()
     {
         Projection.Hide();
+        SetLevel(Level);
     }
 
     [ContextMenu("IncreaseLevel")]

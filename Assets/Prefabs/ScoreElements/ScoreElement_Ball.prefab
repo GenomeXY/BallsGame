@@ -393,8 +393,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemType: 1
   CurrentScore: 0
-  _text: {fileID: 2572469863906971307}
   IconTransform: {fileID: 2666560336107785513}
+  Level: 0
+  FlyingIconPrefab: {fileID: 208373507253999282, guid: aaec4ed0b64c1f7458e9a28947ca7ce5,
+    type: 3}
+  _text: {fileID: 2572469863906971307}
   _scaleCurve:
     serializedVersion: 2
     m_Curve:
@@ -473,9 +476,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  Level: 0
-  FlyingIconPrefab: {fileID: 208373507253999282, guid: aaec4ed0b64c1f7458e9a28947ca7ce5,
-    type: 3}
   _levelText: {fileID: 8205117058712031755}
   _ballImage: {fileID: 4503670599920087792}
   _ballSettings: {fileID: 11400000, guid: 54b49fcceacf7b64ea295000b9e7cb87, type: 2}

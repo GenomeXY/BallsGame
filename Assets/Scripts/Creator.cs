@@ -39,8 +39,9 @@ public class Creator : MonoBehaviour
             Debug.Log("Balls Ended");
             return;
         }
-        //Назначаем шару случайный уровень и создаем шар в позиции трубы
-        int itemLevel = Random.Range(0, 5);
+        //Назначаем шару случайный уровень (в пределах заданного) и создаем шар в позиции трубы
+        int maxCreatedBallLevel = Level.Instance.MaxCreatedBallLevel;
+        int itemLevel = Random.Range(0, maxCreatedBallLevel);
         _itemInTube = Instantiate(_ballPrefab, _tube.position, Quaternion.identity); 
         _itemInTube.SetLevel(itemLevel);
         _itemInTube.SetupToTube(); //отключаем физику у шара

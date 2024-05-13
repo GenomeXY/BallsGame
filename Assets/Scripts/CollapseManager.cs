@@ -56,7 +56,7 @@ public class CollapseManager : MonoBehaviour
     {
         fromItem.Disable();
 
-        // Еси два шара, то въезжают друг в друга
+        // Если два шара, то въезжают друг в друга
         if (fromItem.ItemType == ItemType.Ball || toItem.ItemType == ItemType.Ball)
         {
             Vector3 startPosition = fromItem.transform.position;

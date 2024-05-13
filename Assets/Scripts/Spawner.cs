@@ -29,4 +29,20 @@ public class Spawner : MonoBehaviour
             transform.position = new Vector3(_xPosition, transform.position.y, transform.position.z);
         }
     }
+
+    // вариант для движения Spawner просто за курсоромм мышки (без зажатия клавиши)
+
+    //private void Start()
+    //{
+    //    _oldMouseX = Input.mousePosition.x;
+    //}
+
+    //private void Update()
+    //{
+    //    float delta = Input.mousePosition.x - _oldMouseX; //на сколько пикселей сместилась мышь по сравнению с предыдущим кадром
+    //    _oldMouseX = Input.mousePosition.x;
+    //    _xPosition += delta * _sencentivity / Screen.width; //Screen.width - учитываем ширину экрана в пикселях
+    //    _xPosition = Mathf.Clamp(_xPosition, -_maxXposition, _maxXposition);
+    //    transform.position = new Vector3(_xPosition, transform.position.y, transform.position.z);
+    //}
 }
