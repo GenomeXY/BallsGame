@@ -28,7 +28,7 @@ public class Star : ActiveItem
             if (colliders[i].attachedRigidbody)
             {
                 ActiveItem item = colliders[i].attachedRigidbody.GetComponent<ActiveItem>();
-                if (item)
+                if (item && colliders[i].isTrigger)
                 {
                     item.IncreaseLevel();
                 }
