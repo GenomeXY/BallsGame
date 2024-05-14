@@ -7,11 +7,18 @@ public class CollapseManager : MonoBehaviour
 {
     public UnityEvent OnCollapse;
 
-    public static CollapseManager Instance;
+    public static CollapseManager Instance;      
 
     private void Awake()
     {
-        Instance = this;
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void Collapse(ActiveItem itemA, ActiveItem itemB)
@@ -84,7 +91,7 @@ public class CollapseManager : MonoBehaviour
             else
             {
                 // Если не мяч, воспроизводим эффект
-                fromItem.DoEffect();
+                fromItem.DoEffect(); 
             }
             if (toItem.ItemType == ItemType.Ball)
             {
@@ -92,7 +99,7 @@ public class CollapseManager : MonoBehaviour
             }
             else
             {
-                toItem.DoEffect();
+                toItem.DoEffect();            
             }
         }
 

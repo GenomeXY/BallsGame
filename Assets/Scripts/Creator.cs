@@ -15,11 +15,25 @@ public class Creator : MonoBehaviour
     [SerializeField] private Transform _rayTransform;
     [SerializeField] private LayerMask _layerMask;
 
-    private int _ballsLeft;
+    public int BallsLeft;
     [SerializeField] private TextMeshProUGUI _numberOfBallsText;
+
+    public static Creator Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
-        _ballsLeft = Level.Instance.NumberOfBalls; // сохран€ем количество м€чей, которое задаетс€ в уровне
+        BallsLeft = Level.Instance.NumberOfBalls; // сохран€ем количество м€чей, которое задаетс€ в уровне
         UpdateBallsLeftText();
 
         CreateItemInTube();
@@ -28,13 +42,13 @@ public class Creator : MonoBehaviour
 
     public void UpdateBallsLeftText()
     {
-        _numberOfBallsText.text = _ballsLeft.ToString();
+        _numberOfBallsText.text = BallsLeft.ToString();
     }
 
     //—оздаем новый м€ч в трубе
     void CreateItemInTube()
     {
-        if (_ballsLeft == 0)
+        if (BallsLeft == 0)
         {
             Debug.Log("Balls Ended");
             return;
@@ -45,7 +59,7 @@ public class Creator : MonoBehaviour
         _itemInTube = Instantiate(_ballPrefab, _tube.position, Quaternion.identity); 
         _itemInTube.SetLevel(itemLevel);
         _itemInTube.SetupToTube(); //отключаем физику у шара
-        _ballsLeft--;
+        BallsLeft--;
         UpdateBallsLeftText(); 
     }
 

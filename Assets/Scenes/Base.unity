@@ -533,11 +533,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NumberOfBalls: 50
-  MaxCreatedBallLevel: 5
+  MaxCreatedBallLevel: 4
   Tasks:
   - ItemType: 1
     Number: 1
-    Level: 2
+    Level: 7
 --- !u!4 &1720336012
 Transform:
   m_ObjectHideFlags: 0

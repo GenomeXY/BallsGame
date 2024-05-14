@@ -10,7 +10,8 @@ public enum ItemType
     Stone,
     Box,
     Dynamit,
-    Star
+    Star,
+    AddBallsHearth
 }
 public class Item : MonoBehaviour
 {
