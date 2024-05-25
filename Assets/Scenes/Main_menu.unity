@@ -155,6 +155,7 @@ MonoBehaviour:
   _coinsText: {fileID: 1568705780}
   _levelText: {fileID: 1418074838}
   _startButton: {fileID: 337276655}
+  _backgroundImage: {fileID: 1174342498}
 --- !u!4 &39151670
 Transform:
   m_ObjectHideFlags: 0
@@ -389,7 +390,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Coins: 0
-  Level: 1
+  Level: 0
+  BackgroudColor: {r: 0, g: 0, b: 0, a: 0}
+  IsMusicOn: 0
 --- !u!4 &606643664
 Transform:
   m_ObjectHideFlags: 0
