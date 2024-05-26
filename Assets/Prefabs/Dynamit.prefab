@@ -889,6 +889,7 @@ MonoBehaviour:
   _affectArea: {fileID: 7124541493274070424}
   _effectPrefab: {fileID: 2398608829508964987, guid: f387ac791007951459ed6a93dfa675bf,
     type: 3}
+  _dynamitProjectionMaterial: {fileID: 0}
 --- !u!1001 &2002517181262277139
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -17,6 +17,12 @@ public class Dynamit : ActiveItem
         _affectArea.SetActive(false); //выключаем круг-радуис действия
     }
 
+    public override void SetLevel(int level)
+    {
+        base.SetLevel(level);
+
+        Projection.SetupLevelText(_levelText.text);
+    }
     private IEnumerator AffectProcess()
     {
         _affectArea.SetActive(true); //включает круг-радуис действия, чтобы мы видели зону поражения

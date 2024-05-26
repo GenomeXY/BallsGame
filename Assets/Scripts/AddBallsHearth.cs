@@ -12,6 +12,12 @@ public class AddBallsHearth : ActiveItem
         base.Start();
     }
 
+    public override void SetLevel(int level)
+    {
+        base.SetLevel(level);
+
+        Projection.SetupLevelText(_levelText.text);
+    }
     private IEnumerator AffectProcess()
     {
         _animator.enabled = true;

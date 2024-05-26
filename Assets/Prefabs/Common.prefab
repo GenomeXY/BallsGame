@@ -48,10 +48,17 @@ MonoBehaviour:
   _spawner: {fileID: 3683591740976879639}
   _ballPrefab: {fileID: 911931139271826998, guid: 95ab1b240a8465f4e9a197847a46e88c,
     type: 3}
+  _dynamitPrefab: {fileID: 8915656853772144666, guid: bb0a18000a14de34f9870e9c9b6f7074,
+    type: 3}
+  _starPrefab: {fileID: 6264962384419201413, guid: 742cc643f30263e4a9774c2fcf891b93,
+    type: 3}
+  _hearthPrefab: {fileID: 3847131204986344979, guid: 609c2d07f6af0f540bf5621fc224e6c4,
+    type: 3}
   _rayTransform: {fileID: 6606205509829025476}
   _layerMask:
     serializedVersion: 2
     m_Bits: 4294967295
+  BallsLeft: 0
   _numberOfBallsText: {fileID: 7204672355296997277}
 --- !u!1 &474172086157576947
 GameObject:

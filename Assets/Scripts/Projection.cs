@@ -11,9 +11,14 @@ public class Projection : MonoBehaviour
 
     public void Setup(Material material, string numberText, float radius)
     {
-        _renderer.material = material;  
+        _renderer.material = material;
         _levelText.text = numberText;
         _visualTransform.localScale = Vector3.one * radius * 2;
+    }
+
+    public void SetupLevelText(string numberText)
+    {
+        _levelText.text = numberText;
     }
 
     public void Show()

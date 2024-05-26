@@ -650,6 +650,8 @@ MonoBehaviour:
   _affectArea: {fileID: 7588341709889481858}
   _effectPrefab: {fileID: 8550051998276758377, guid: 6f14ea3b4707b0f43a7d2a7dd397992e,
     type: 3}
+  _starProjectionMaterial: {fileID: 2100000, guid: ab9bd2baec94b174b84b29b5357052fb,
+    type: 2}
 --- !u!1 &8581036823310914099
 GameObject:
   m_ObjectHideFlags: 0

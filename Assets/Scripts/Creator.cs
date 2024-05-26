@@ -8,6 +8,9 @@ public class Creator : MonoBehaviour
     [SerializeField] private Transform _tube; 
     [SerializeField] private Transform _spawner;
     [SerializeField] private ActiveItem _ballPrefab;
+    [SerializeField] private ActiveItem _dynamitPrefab;
+    [SerializeField] private ActiveItem _starPrefab;
+    [SerializeField] private ActiveItem _hearthPrefab;
 
     private ActiveItem _itemInTube;
     private ActiveItem _itemInSpawner;
@@ -56,7 +59,25 @@ public class Creator : MonoBehaviour
         //Назначаем шару случайный уровень (в пределах заданного) и создаем шар в позиции трубы
         int maxCreatedBallLevel = Level.Instance.MaxCreatedBallLevel;
         int itemLevel = Random.Range(0, maxCreatedBallLevel);
-        _itemInTube = Instantiate(_ballPrefab, _tube.position, Quaternion.identity); 
+
+        int number = Random.Range(0, 20);
+        if (number == 19)
+        {
+            _itemInTube = Instantiate(_dynamitPrefab, _tube.position, Quaternion.identity);
+        }
+        else if (number == 18)
+        {
+            _itemInTube = Instantiate(_starPrefab, _tube.position, Quaternion.identity);
+        }
+        else if (number == 17)
+        {
+            _itemInTube = Instantiate(_hearthPrefab, _tube.position, Quaternion.identity);
+        }
+        else
+        {
+            _itemInTube = Instantiate(_ballPrefab, _tube.position, Quaternion.identity);
+        }       
+        
         _itemInTube.SetLevel(itemLevel);
         _itemInTube.SetupToTube(); //отключаем физику у шара
         BallsLeft--;

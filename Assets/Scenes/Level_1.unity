@@ -1143,6 +1143,24 @@ PrefabInstance:
       propertyPath: Level
       value: 
       objectReference: {fileID: 1720336011}
+    - target: {fileID: 3614130563137212253, guid: 0ca973e7e450e444c86fb1d3912ccea1,
+        type: 3}
+      propertyPath: _starPrefab
+      value: 
+      objectReference: {fileID: 6264962384419201413, guid: 742cc643f30263e4a9774c2fcf891b93,
+        type: 3}
+    - target: {fileID: 3614130563137212253, guid: 0ca973e7e450e444c86fb1d3912ccea1,
+        type: 3}
+      propertyPath: _hearthPrefab
+      value: 
+      objectReference: {fileID: 3847131204986344979, guid: 609c2d07f6af0f540bf5621fc224e6c4,
+        type: 3}
+    - target: {fileID: 3614130563137212253, guid: 0ca973e7e450e444c86fb1d3912ccea1,
+        type: 3}
+      propertyPath: _dynamitPrefab
+      value: 
+      objectReference: {fileID: 8915656853772144666, guid: bb0a18000a14de34f9870e9c9b6f7074,
+        type: 3}
     - target: {fileID: 8817077158791267885, guid: 0ca973e7e450e444c86fb1d3912ccea1,
         type: 3}
       propertyPath: m_Name

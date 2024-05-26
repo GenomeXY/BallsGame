@@ -390,7 +390,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Coins: 0
-  Level: 0
+  Level: 1
   BackgroudColor: {r: 0, g: 0, b: 0, a: 0}
   IsMusicOn: 0
 --- !u!4 &606643664
